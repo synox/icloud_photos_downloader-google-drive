@@ -41,5 +41,5 @@ mkdir mount-google-drive
 
 crontab -e:
 ```
-0 */6 * * * /home/user/icloud_photos_downloader.sh
+0 */6 * * * /root/icloud_photos_downloader.sh
 ```
