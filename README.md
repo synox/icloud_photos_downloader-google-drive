@@ -2,12 +2,15 @@
 
 # rclone mount
 apt install rclone
+apt install fuse
 
 rclone config	# with custom client id: https://rclone.org/drive/#making-your-own-client-id
 
+rclone mount "gdrive:Apple Photos backup" mount-google-drive/ --daemon
 
 # iCloud Photos
-pip install icloudpd
+apt intall python3-pip
+pip3 install icloudpd
 
 icloud.creds: 
 ```
