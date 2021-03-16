@@ -46,3 +46,7 @@ crontab -e:
 ```
 0 */6 * * * /root/icloud_photos_downloader.sh
 ```
+
+# sign in 
+source icloud.creds
+icloud --username $email
