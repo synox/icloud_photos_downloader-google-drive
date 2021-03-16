@@ -24,41 +24,16 @@ gmail_password=
 recipient=
 ```
 
-icloud_photos_downloader.sh:
-```bash
-#!/bin/bash
-# Make sure it's not already running
-pgrep -f icloudpd && echo "icloudpd is already running." && exit
-
-# Make sure the mount is active
-test -d mount-google-drive/Photos/ || (echo mount-google-drive/Photos is not mounted; exit 1)
-
-source icloud.creds
-source gmail.creds
-
-email_seetings=
-if [[ "$1" == "cron" ]]; then
-  email_seetings="--smtp-username $gmail_username --smtp-password $gmail_password --notification-email $recipient"
-fi
-
-icloudpd --directory ./mount-google-drive/Photos \
---username $email \
---password $password \
-$email_seetings \
---recent 500 --size original   --folder-structure {:%Y/%Y-%m-%d} \
---threads-num 1
-```
+[icloud_photos_downloader.sh](./icloud_photos_downloader.sh)
 
 mkdir mount-google-drive
 chmod +x icloud_photos_downloader.sh
 
-./icloud_photos_downloader.sh # for initial 2FA setup
+# First test  / refresh 2FA
+./icloud_photos_downloader.sh 
 
+# Setup cron
 crontab -e:
 ```
-0 */6 * * * /root/icloud_photos_downloader.sh
+0 */6 * * * /root/icloud_photos_downloader.sh cron
 ```
-
-# sign in 
-source icloud.creds
-icloud --username $email
