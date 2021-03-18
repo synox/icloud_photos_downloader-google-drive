@@ -4,7 +4,7 @@ set -e
 cd "$(dirname "${BASH_SOURCE[0]}")"
 
 # Make sure it's not already running
-pgrep --full ${BASH_SOURCE[0]} && echo "${BASH_SOURCE[0]} is already running." && exit
+pgrep --full ${BASH_SOURCE[0]} |grep -v "$BASHPID" && echo "${BASH_SOURCE[0]} is already running." && exit
 
 MOUNT=./mount-google-drive/Photos
 
