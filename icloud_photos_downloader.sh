@@ -22,5 +22,5 @@ icloudpd --directory $MOUNT \
 --username $email \
 --password $password \
 $email_seetings \
---recent 500 --size original   --folder-structure {:%Y/%Y-%m-%d} \
---threads-num 1
+--size original   --folder-structure {:%Y/%Y-%m-%d} \
+--threads-num 50
