@@ -2,7 +2,7 @@
 # Make sure it's not already running
 pgrep -f icloudpd && echo "icloudpd is already running." && exit
 
-MOUNT=mount-google-drive/Photos
+MOUNT=./mount-google-drive/Photos
 
 # Make sure the mount is active
 if [ ! -d $MOUNT/ ]; then
@@ -18,7 +18,7 @@ if [[ "$1" == "cron" ]]; then
   email_seetings="--smtp-username $gmail_username --smtp-password $gmail_password --notification-email $recipient"
 fi
 
-icloudpd --directory ./$MOUNT \
+icloudpd --directory $MOUNT \
 --username $email \
 --password $password \
 $email_seetings \
