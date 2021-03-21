@@ -19,7 +19,7 @@ if [[ "$1" == "cron" ]]; then
   email_seetings="--smtp-username $gmail_username --smtp-password $gmail_password --notification-email $recipient"
 fi
 
-icloudpd --directory $MOUNT \
+/usr/local/bin/icloudpd --directory $MOUNT \
 --username $email \
 --password $password \
 $email_seetings \
