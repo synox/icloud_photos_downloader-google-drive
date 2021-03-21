@@ -2,3 +2,6 @@ icloud.creds
 gmail.creds
 .idea
 mount-google-drive
+nohup.out
+cron.log
+
