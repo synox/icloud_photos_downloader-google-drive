@@ -24,4 +24,5 @@ fi
 --password $password \
 $email_seetings \
 --size original   --folder-structure {:%Y/%Y-%m-%d} \
---threads-num 50
+--threads-num 50 \
+--until-found 25 # remove this line for initial sync
