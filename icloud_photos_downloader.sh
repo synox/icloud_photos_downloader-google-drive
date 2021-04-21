@@ -19,10 +19,17 @@ if [[ "$1" == "cron" ]]; then
   email_seetings="--smtp-username $gmail_username --smtp-password $gmail_password --notification-email $recipient"
 fi
 
+update_seetings=
+if [[ "$2" == "update" ]]; then
+  update_seetings=" --until-found 25 "
+ # disable for initial sync
+
+fi
+
+
 /usr/local/bin/icloudpd --directory $MOUNT \
 --username $email \
 --password $password \
-$email_seetings \
+$email_seetings $update_seetings \
 --size original   --folder-structure {:%Y/%Y-%m-%d} \
---threads-num 50 \
---until-found 25 # remove this line for initial sync
+--threads-num 50 
