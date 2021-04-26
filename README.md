@@ -8,7 +8,7 @@ apt install fuse
 rclone config	# with custom client id: https://rclone.org/drive/#making-your-own-client-id
 
 mkdir mount-google-drive
-rclone mount "gdrive:Apple Photos backup" mount-google-drive/ --daemon
+rclone mount --vfs-cache-mode full "gdrive:Apple Photos backup" mount-google-drive/ --daemon
 ```
 # setup icloudpd
 ```
